@@ -14,8 +14,7 @@
 - [x] 03. Ray Tracing files + Parsing
 - [x] 03. scenes
 
-plane,
-sphere, cylinder and cone.
+
 ## ID of evey Shape (for parsing) :
 
 | id | Shape |
