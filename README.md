@@ -1,8 +1,18 @@
 # RTv1
 
+
+[![All Contributors](https://img.shields.io/badge/all_contributors-4-blue.svg?style=flat-square)](#contributors-)
+
+
 <p align="center">
-    <img src="https://i.imgur.com/qB1BnfQ.png" height="160">
+  <a href="https://docs.microsoft.com/en-us/learn/paths/azure-fundamentals/ "Azure fundamentals">
+    <img alt="Gatsby" src="https://i.imgur.com/qB1BnfQ.png" width="500" />
+  </a>
 </p>
+<h1 align="center">
+  Ray Tracing Version 1.0 (RTv1)
+</h1>
+
 
 ## About 
 **RTv1** is a project i made it during my student years at 1337 School khouribga (one of 42 network), This project is the first step to create a Raytracing program, for you to finally be able to render computer-generated images.
