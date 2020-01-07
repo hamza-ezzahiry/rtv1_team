@@ -1,7 +1,7 @@
 # RTv1
 
 <p align="center">
-    <img src="https://i.imgur.com/jm1e5Hk.jpg" height="130">
+    <img src="https://i.imgur.com/qB1BnfQ.png" height="160">
 </p>
 
 ## About 
