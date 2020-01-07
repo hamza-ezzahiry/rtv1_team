@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   parsing.c                                          :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: hezzahir <hezzahir@student.42.fr>          +#+  +:+       +#+        */
+/*   By: hezzahir <hamza.ezzahiry@gmail.com>        +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2020/01/03 14:03:21 by hezzahir          #+#    #+#             */
-/*   Updated: 2020/01/05 13:06:52 by hezzahir         ###   ########.fr       */
+/*   Updated: 2020/01/06 00:15:57 by hezzahir         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -23,19 +23,13 @@ int			is_everything_okey(char *tab)
 	return (1);
 }
 
-void		ft_error()
-{
-	perror("rtv1");
-	exit(0);
-}
-
 int			ft_open(char *filename)
 {
 	int fd;
 
 	if ((fd = open(filename, O_RDONLY)) == -1)
 	{
-		ft_error();
+		ft_error(0);
 	}
 	return (fd);
 }
@@ -64,14 +58,13 @@ int			parse(t_rtv1 *r, char *s)
 	char	*line;
 
 	//init_tab(r->is_okey);
-
 	r->fd = ft_open(s);
 	if (get_next_line(r->fd, &line) == 1 && line != NULL)
 		checker(line, r);
 	else
 	{
 		free(line);
-		ft_error();
+		ft_error(0);
 	}
 	free(line);
 	while (get_next_line(r->fd, &line) > 0)

@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   rtv1.h                                             :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: hezzahir <hezzahir@student.42.fr>          +#+  +:+       +#+        */
+/*   By: hezzahir <hamza.ezzahiry@gmail.com>        +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2019/12/27 07:08:51 by hhamdaou          #+#    #+#             */
-/*   Updated: 2020/01/05 12:51:27 by hezzahir         ###   ########.fr       */
+/*   Updated: 2020/01/06 00:21:44 by hezzahir         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -114,6 +114,7 @@ t_color			get_color_from_str(char *str);
 void			set_camera(char **words, t_rtv1 *r);
 int				ft_count_words(const char *s, char c);
 void			set_sphere(char **words, t_rtv1  *r);
+void			ft_error(int id);
 /*
 ** destroy leaks functions
 */

@@ -3,10 +3,10 @@
 #                                                         :::      ::::::::    #
 #    Makefile                                           :+:      :+:    :+:    #
 #                                                     +:+ +:+         +:+      #
-#    By: hezzahir <hezzahir@student.42.fr>          +#+  +:+       +#+         #
+#    By: hezzahir <hamza.ezzahiry@gmail.com>        +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2019/10/19 18:32:21 by hezzahir          #+#    #+#              #
-#    Updated: 2020/01/05 13:03:58 by hezzahir         ###   ########.fr        #
+#    Updated: 2020/01/06 00:12:05 by hezzahir         ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
 
@@ -14,8 +14,7 @@
 NAME = rtv1
 
 SRC_PATH = srcs
-SRC_NAME = main.c vector.c check_ac.c parsing.c vector1.c sphere.c camera.c \
-			 anti_leaks.c
+SRC_NAME = main.c vector.c check_ac.c parsing.c sphere.c camera.c get_data.c
 
 OBJ_PATH = objs
 OBJ_NAME = $(SRC_NAME:.c=.o)
