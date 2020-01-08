@@ -49,7 +49,7 @@ cone 0,0,0 20 255,0,0
 **Camere**
 
 ```sh
-camera <position> <normalize> <field of view>
+camera <position> <look at> <field of view>
 ```
 
 **light**
