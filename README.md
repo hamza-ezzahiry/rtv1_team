@@ -71,7 +71,7 @@ plane <origin> <color>
 **Cylinder**
 
 ```sh
-cylinder <centre> <raduis> <height> <color> 
+cylinder <origin> <raduis> <height> <color> 
 ```
 
 **Cone**
