@@ -87,6 +87,7 @@ cone <centre> <diameter> <color>
 - **[Ray Tracing in One Weekend - Website](https://raytracing.github.io/books/RayTracingInOneWeekend.html)**
 - **[All about Ray Tracing - YouTube](https://youtu.be/Ahp6LDQnK4Y)**
 - **[Images in minilibx](https://github.com/keuhdall/images_example)**
+- **[Ray tracing Cone - Maths behind](http://www.illusioncatalyst.com/notes_files/mathematics/line_cone_intersection.php)**
 
 
 
