@@ -68,10 +68,10 @@ sphere <origin> <raduis> <color>
 ```sh
 plane <origin> <color>
 ```
-**Cylinder**
+**Cylindre**
 
 ```sh
-cylinder <origin> <raduis> <height> <color> 
+cylindre <origin> <raduis> <height> <color> 
 ```
 
 **Cone**
