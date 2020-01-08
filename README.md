@@ -60,24 +60,24 @@ light <position> <intensity> <color>
 **Sphere**
 
 ```sh
-sphere <centre> <diameter> <color>
+sphere <origin> <raduis> <color>
 ```
 
 **Plane**
 
 ```sh
-plane <centre> <color>
+plane <origin> <color>
 ```
 **Cylinder**
 
 ```sh
-cylinder <centre> <diameter> <height> <color> 
+cylinder <centre> <raduis> <height> <color> 
 ```
 
 **Cone**
 
 ```sh
-cone <centre> <diameter> <color> 
+cone <origin> <raduis> <color> 
 ```
 
 ## Resources :  
