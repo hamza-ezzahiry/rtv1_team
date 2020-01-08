@@ -34,6 +34,51 @@
 | 3 | cylinder |
 | 4 | cone |
 
+## Parsing file format 
+
+```sh
+camera -50,0,20 0,0,0 70
+light -40,0,30 0.7 255,255,255
+sphere 0,0,20 20 255,0,0
+plane 0,0,0 255,0,225
+cylinder 50.0,0.0,20.6 14.2 21.42 10,0,255
+cone 0,0,0 20 255,0,0
+```
+
+
+**Camere**
+
+```sh
+camera <position> <normalize> <field of view>
+```
+
+**light**
+
+```sh
+light <position> <intensity> <color>
+```
+**Sphere**
+
+```sh
+sphere <centre> <diameter> <color>
+```
+
+**Plane**
+
+```sh
+plane <centre> <color>
+```
+**Cylinder**
+
+```sh
+cylinder <centre> <diameter> <height> <color> 
+```
+
+**Cone**
+
+```sh
+cone <centre> <diameter> <color> 
+```
 
 ## Resources :  
 
