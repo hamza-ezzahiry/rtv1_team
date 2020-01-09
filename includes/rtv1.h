@@ -3,15 +3,15 @@
 /*                                                        :::      ::::::::   */
 /*   rtv1.h                                             :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: hezzahir <hamza.ezzahiry@gmail.com>        +#+  +:+       +#+        */
+/*   By: hezzahir <hezzahir@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2019/12/27 07:08:51 by hhamdaou          #+#    #+#             */
-/*   Updated: 2020/01/06 00:21:44 by hezzahir         ###   ########.fr       */
+/*   Updated: 2020/01/08 23:07:48 by hezzahir         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #ifndef RTV1_H
-#define RTV1_H
+# define RTV1_H
 # include "../libft/libft.h"
 # include "mlx.h"
 # include <stdio.h>
@@ -21,11 +21,11 @@
 
 typedef struct	s_img
 {
-	void *img_ptr;
-	unsigned char *data;
-	int size_l;
-	int bpp;
-	int endian;
+	void			*img_ptr;
+	unsigned char	*data;
+	int				size_l;
+	int				bpp;
+	int				endian;
 }				t_img;
 
 typedef struct	s_mlx
@@ -34,20 +34,20 @@ typedef struct	s_mlx
 	void	*win;
 	t_img	img;
 	double	fov;
-} 				t_mlx;
+}				t_mlx;
 
 typedef struct	s_vect
 {
 	double	x;
 	double	y;
 	double	z;
-} 				t_vect;
+}				t_vect;
 
 typedef struct	s_ray
 {
 	t_vect origin;
 	t_vect dir;
-} 				t_ray;
+}				t_ray;
 
 typedef struct	s_color
 {
@@ -63,10 +63,16 @@ typedef struct	s_sphere
 	t_color		color;
 }				t_sphere;
 
+typedef struct	s_plane
+{
+	t_vect		origin;
+	t_color		color;
+}				t_plane;
+
 typedef struct	s_camera
 {
 	t_vect		pos;
-	t_color		c;
+	t_vect		lookat;
 	int			fov;
 
 }				t_camera;
@@ -78,11 +84,36 @@ typedef struct	s_shape
 	struct s_shape	*next;
 }				t_shape;
 
+typedef struct	s_light
+{
+	t_vect			origin;
+	double			intensity;
+	t_color			color;
+
+}				t_light;
+
+typedef struct	s_cone
+{
+	t_vect			origin;
+	double			radius;
+	t_color			color;
+
+}				t_cone;
+
+typedef struct	s_cylindre
+{
+	t_vect			origin;
+	double			radius;
+	double			height;
+	t_color			color;
+}				t_cylindre;
+
 typedef struct	s_rtv1
 {
 	int			fd;
 	t_shape		*shape;
 	t_camera	cam;
+	t_light		light;
 	int			is_okey[3];
 }				t_rtv1;
 
@@ -107,14 +138,21 @@ void			check_ac(int ac);
 /*
 ** Parsing functions
 */
-int    			parse(t_rtv1 *r, char *s);
+int				parse(t_rtv1 *r, char *s);
+void			set_camera(char **words, t_rtv1 *r);
+void			set_light(char **words, t_rtv1 *r);
+void			set_sphere(char **words, t_rtv1 *r);
+void			set_cylindre(char **words, t_rtv1 *r);
+void			set_plane(char **words, t_rtv1 *r);
+void			set_cone(char **words, t_rtv1 *r);
 void			init_tab(char *tab);
 t_vect			get_vect_from_str(char *str);
 t_color			get_color_from_str(char *str);
-void			set_camera(char **words, t_rtv1 *r);
+
 int				ft_count_words(const char *s, char c);
-void			set_sphere(char **words, t_rtv1  *r);
+
 void			ft_error(int id);
+int				count(char **words);
 /*
 ** destroy leaks functions
 */
