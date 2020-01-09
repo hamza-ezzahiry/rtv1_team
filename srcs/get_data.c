@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   get_data.c                                         :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: hezzahir <hamza.ezzahiry@gmail.com>        +#+  +:+       +#+        */
+/*   By: hezzahir <hezzahir@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2020/01/03 18:37:08 by hezzahir          #+#    #+#             */
-/*   Updated: 2020/01/07 09:57:06 by hezzahir         ###   ########.fr       */
+/*   Updated: 2020/01/09 01:31:20 by hezzahir         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -32,6 +32,8 @@ void		ft_error(int id)
 		ft_putendl("Error: vector not valid");
 	else if (id == 2)
 		ft_putendl("Error: color not valid");
+	else if(id == 3)
+		ft_putendl("Error: No data found");
 	exit(0);
 }
 

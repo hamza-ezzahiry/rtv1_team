@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   parsing.c                                          :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: hezzahir <hamza.ezzahiry@gmail.com>        +#+  +:+       +#+        */
+/*   By: hezzahir <hezzahir@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2020/01/03 14:03:21 by hezzahir          #+#    #+#             */
-/*   Updated: 2020/01/06 00:15:57 by hezzahir         ###   ########.fr       */
+/*   Updated: 2020/01/09 01:39:55 by hezzahir         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -36,28 +36,35 @@ int			ft_open(char *filename)
 
 void		checker(char *line, t_rtv1 *r)
 {
-	char **words;
+	char	**words;
+	int		nb_word;
 
 	words = ft_strsplit(line, ' ');
-	if (!ft_strcmp(words[0], "camera"))
+	nb_word = count(words);
+	if (!ft_strcmp(words[0], "camera") && nb_word == 4)
 		set_camera(words, r);
-	else if (!ft_strcmp(words[0], "sphere"))
+	else if (!ft_strcmp(words[0], "sphere") && nb_word == 4)
 		set_sphere(words, r);
-	/* else if (!ft_strcmp(words[0], "plane"))
+	else if (!ft_strcmp(words[0], "plane") && nb_word == 3)
 		set_plane(words, r);
-	else if (!ft_strcmp(words[0], "light"))
+	else if (!ft_strcmp(words[0], "light") && nb_word == 4)
 		set_light(words, r);
-	else if (!ft_strcmp(words[0], "cylinder"))
-		set_cylinder(words, r);
-	make_free(words); */
-	//print_error(r->is_okey);
+	else if (!ft_strcmp(words[0], "cylindre") && nb_word == 5)
+		set_cylindre(words, r);
+	else if (!ft_strcmp(words[0], "cone") && nb_word == 4)
+		set_cone(words, r);
+	else
+	{
+		make_free(words);
+		ft_error(3);
+	}
+	make_free(words);
 }
 
 int			parse(t_rtv1 *r, char *s)
 {
 	char	*line;
 
-	//init_tab(r->is_okey);
 	r->fd = ft_open(s);
 	if (get_next_line(r->fd, &line) == 1 && line != NULL)
 		checker(line, r);

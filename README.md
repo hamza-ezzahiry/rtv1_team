@@ -14,7 +14,7 @@
 </h1>
 
 
-## About 
+## About
 **RTv1** is a project i made it during my student years at 1337 School khouribga (one of 42 network), This project is the first step to create a Raytracing program, for you to finally be able to render computer-generated images.
 
 ## Project Contents :
@@ -34,7 +34,7 @@
 | 3 | cylinder |
 | 4 | cone |
 
-## Parsing file format 
+## Parsing file format
 
 ```sh
 camera -50,0,20 0,0,0 70
@@ -71,19 +71,19 @@ plane <origin> <color>
 **Cylindre**
 
 ```sh
-cylindre <origin> <raduis> <height> <color> 
+cylindre <origin> <raduis> <height> <color>
 ```
 
 **Cone**
 
 ```sh
-cone <origin> <raduis> <color> 
+cone <origin> <raduis> <color>
 ```
 
-## Resources :  
+## Resources :
 
 - **[KhanAcademy - Vectors & Spaces](https://www.khanacademy.org/math/linear-algebra/vectors-and-spaces)**
-- **[Ray Tracing in One Weekend - PDF](https://www.realtimerendering.com/raytracing/Ray%20Tracing%20in%20a%20Weekend.pdf)** 
+- **[Ray Tracing in One Weekend - PDF](https://www.realtimerendering.com/raytracing/Ray%20Tracing%20in%20a%20Weekend.pdf)**
 - **[Ray Tracing in One Weekend - Website](https://raytracing.github.io/books/RayTracingInOneWeekend.html)**
 - **[All about Ray Tracing - YouTube](https://youtu.be/Ahp6LDQnK4Y)**
 - **[Images in minilibx](https://github.com/keuhdall/images_example)**

@@ -1,33 +1,35 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   plane.c                                            :+:      :+:    :+:   */
+/*   cylinder.c                                         :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: hezzahir <hezzahir@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2020/01/04 21:54:26 by hezzahir          #+#    #+#             */
-/*   Updated: 2020/01/08 22:34:22 by hezzahir         ###   ########.fr       */
+/*   Created: 2020/01/08 21:27:40 by hezzahir          #+#    #+#             */
+/*   Updated: 2020/01/08 22:09:39 by hezzahir         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "rtv1.h"
 
 /*
-**	Plane <origin> <color>
+**	Cylindre <origin> <raduis> <height> <color>
 */
 
-void	set_plane(char **words, t_rtv1 *r)
+void		set_cylindre(char **words, t_rtv1 *r)
 {
 	t_shape		*shape;
-	t_plane		*plane;
+	t_cylindre	*cylindre;
 	t_shape		*elt;
 
 	shape = (t_shape*)malloc(sizeof(t_shape));
-	plane = (t_plane*)malloc(sizeof(t_plane));
-	plane->origin = get_vect_from_str(words[1]);
-	plane->color = get_color_from_str(words[2]);
-	shape->shape = plane;
-	shape->id = 2;
+	cylindre = (t_cylindre*)malloc(sizeof(t_cylindre));
+	cylindre->origin = get_vect_from_str(words[1]);
+	cylindre->radius = atof(words[2]);
+	cylindre->height = atof(words[3]);
+	cylindre->color = get_color_from_str(words[4]);
+	shape->shape = cylindre;
+	shape->id = 3;
 	shape->next = NULL;
 	elt = r->shape;
 	if (r->shape == NULL)
