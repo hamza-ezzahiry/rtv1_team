@@ -49,13 +49,13 @@ cone 0,0,0 20 255,0,0 0,0,0 0,0,0
 **Camere**
 
 ```sh
-camera <position> <look at> <field of view> <translation> <rotation>
+camera <position> <look at> <field of view> 
 ```
 
 **light**
 
 ```sh
-light <position> <intensity> <color> <translation> <rotation>
+light <position> <intensity> <color> 
 ```
 **Sphere**
 
@@ -77,7 +77,7 @@ cylindre <origin> <raduis> <height> <color> <translation> <rotation>
 **Cone**
 
 ```sh
-cone <origin> <raduis> <color>
+cone <origin> <raduis> <color> <translation> <rotation>
 ```
 
 ## Resources :
