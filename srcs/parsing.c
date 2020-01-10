@@ -6,7 +6,7 @@
 /*   By: hezzahir <hezzahir@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2020/01/03 14:03:21 by hezzahir          #+#    #+#             */
-/*   Updated: 2020/01/10 12:23:02 by hezzahir         ###   ########.fr       */
+/*   Updated: 2020/01/10 14:39:10 by hezzahir         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -41,14 +41,14 @@ void		checker(char *line, t_rtv1 *r)
 
 	words = ft_strsplit(line, ' ');
 	nb_word = count(words);
-	if (!ft_strcmp(words[0], "camera") && nb_word == 6)
+	if (!ft_strcmp(words[0], "camera") && nb_word == 4)
 		set_camera(words, r);
+	else if (!ft_strcmp(words[0], "light") && nb_word == 4)
+		set_light(words, r);
 	else if (!ft_strcmp(words[0], "sphere") && nb_word == 6)
 		set_sphere(words, r);
 	else if (!ft_strcmp(words[0], "plane") && nb_word == 5)
 		set_plane(words, r);
-	else if (!ft_strcmp(words[0], "light") && nb_word == 6)
-		set_light(words, r);
 	else if (!ft_strcmp(words[0], "cylindre") && nb_word == 7)
 		set_cylindre(words, r);
 	else if (!ft_strcmp(words[0], "cone") && nb_word == 6)
