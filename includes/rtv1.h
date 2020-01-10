@@ -6,7 +6,7 @@
 /*   By: hezzahir <hezzahir@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2019/12/27 07:08:51 by hhamdaou          #+#    #+#             */
-/*   Updated: 2020/01/08 23:07:48 by hezzahir         ###   ########.fr       */
+/*   Updated: 2020/01/10 10:34:57 by hezzahir         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -61,12 +61,16 @@ typedef struct	s_sphere
 	t_vect		origin;
 	double		radius;
 	t_color		color;
+	t_vect		rot;
+	t_vect		tran;
 }				t_sphere;
 
 typedef struct	s_plane
 {
 	t_vect		origin;
 	t_color		color;
+	t_vect		rot;
+	t_vect		tran;
 }				t_plane;
 
 typedef struct	s_camera
@@ -74,7 +78,6 @@ typedef struct	s_camera
 	t_vect		pos;
 	t_vect		lookat;
 	int			fov;
-
 }				t_camera;
 
 typedef struct	s_shape
@@ -89,7 +92,6 @@ typedef struct	s_light
 	t_vect			origin;
 	double			intensity;
 	t_color			color;
-
 }				t_light;
 
 typedef struct	s_cone
@@ -97,7 +99,8 @@ typedef struct	s_cone
 	t_vect			origin;
 	double			radius;
 	t_color			color;
-
+	t_vect			rot;
+	t_vect			tran;
 }				t_cone;
 
 typedef struct	s_cylindre
@@ -106,6 +109,8 @@ typedef struct	s_cylindre
 	double			radius;
 	double			height;
 	t_color			color;
+	t_vect			rot;
+	t_vect			tran;
 }				t_cylindre;
 
 typedef struct	s_rtv1
