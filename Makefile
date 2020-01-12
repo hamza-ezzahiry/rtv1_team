@@ -6,7 +6,7 @@
 #    By: hezzahir <hezzahir@student.42.fr>          +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2019/10/19 18:32:21 by hezzahir          #+#    #+#              #
-#    Updated: 2020/01/09 01:21:04 by hezzahir         ###   ########.fr        #
+#    Updated: 2020/01/12 15:00:43 by hezzahir         ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
 
@@ -14,7 +14,7 @@
 NAME = rtv1
 
 SRC_PATH = srcs
-SRC_NAME =  main.c vector.c check_ac.c parsing.c   get_data.c \
+SRC_NAME =  main.c vec_cal1.c vec_cal2.c check_ac.c parsing.c   get_data.c \
 			camera.c sphere.c cone.c cylinder.c light.c plane.c
 
 OBJ_PATH = objs
