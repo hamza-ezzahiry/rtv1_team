@@ -6,7 +6,7 @@
 /*   By: hezzahir <hezzahir@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2020/01/04 11:59:15 by hezzahir          #+#    #+#             */
-/*   Updated: 2020/01/10 11:13:55 by hezzahir         ###   ########.fr       */
+/*   Updated: 2020/01/13 15:20:34 by hezzahir         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -22,8 +22,8 @@ void		set_sphere(char **words, t_rtv1 *r)
 	t_sphere	*sphere;
 	t_shape		*elt;
 
-	shape = (t_shape*)malloc(sizeof(t_shape));
-	sphere = (t_sphere*)malloc(sizeof(t_sphere));
+	shape = (t_shape*)ft_memalloc(sizeof(t_shape));
+	sphere = (t_sphere*)ft_memalloc(sizeof(t_sphere));
 	sphere->origin = get_vect_from_str(words[1]);
 	sphere->radius = atof(words[2]);
 	sphere->color = get_color_from_str(words[3]);
