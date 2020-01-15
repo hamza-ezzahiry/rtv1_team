@@ -42,7 +42,7 @@ light -40,0,30 0.7 255,255,255
 sphere 0,0,20 20 255,0,0 0,0,0 0,0,0
 plane 0,0,0 255,0,225 0,0,0 0,0,0
 cylinder 50.0,0.0,20.6 14.2 21.42 10,0,255 0,0,0 0,0,0
-cone 0,0,0 20 255,0,0 0,0,0 0,0,0
+cone 0,0,0 20 60 255,0,0 0,0,0 0,0,0
 ```
 
 
@@ -77,7 +77,7 @@ cylindre <origin> <raduis> <height> <color> <translation> <rotation>
 **Cone**
 
 ```sh
-cone <origin> <raduis> <color> <translation> <rotation>
+cone <origin> <raduis> <height> <color> <translation> <rotation>
 ```
 
 ## Resources :
