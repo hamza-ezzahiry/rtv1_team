@@ -6,7 +6,7 @@
 /*   By: hezzahir <hezzahir@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2019/12/27 07:08:51 by hhamdaou          #+#    #+#             */
-/*   Updated: 2020/01/10 10:34:57 by hezzahir         ###   ########.fr       */
+/*   Updated: 2020/01/16 17:39:07 by hezzahir         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -56,6 +56,15 @@ typedef struct	s_color
 	int		b;
 }				t_color;
 
+typedef struct	s_intersection
+{
+	int		inter;
+	t_color	inter_color;
+	t_vect	p_inter;
+	t_vect	normal;
+	double	coord_min;
+}				t_intersection;
+
 typedef struct	s_sphere
 {
 	t_vect		origin;
@@ -98,7 +107,9 @@ typedef struct	s_cone
 {
 	t_vect			origin;
 	double			radius;
+	double			height;
 	t_color			color;
+	t_vect			axis;
 	t_vect			rot;
 	t_vect			tran;
 }				t_cone;
@@ -112,6 +123,16 @@ typedef struct	s_cylindre
 	t_vect			rot;
 	t_vect			tran;
 }				t_cylindre;
+
+typedef struct	s_equation
+{
+	double	a;
+	double	b;
+	double	c;
+	double	delta;
+	double	s1;
+	double	s2;
+}				t_equation;
 
 typedef struct	s_rtv1
 {
