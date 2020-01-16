@@ -6,7 +6,7 @@
 /*   By: hezzahir <hezzahir@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2020/01/08 12:06:52 by hezzahir          #+#    #+#             */
-/*   Updated: 2020/01/13 01:52:45 by hezzahir         ###   ########.fr       */
+/*   Updated: 2020/01/16 17:36:25 by hezzahir         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -16,7 +16,7 @@
 **	cone <centre> <diameter> <color>
 */
 
-void	set_cone(char **words, t_rtv1 *r)
+void		set_cone(char **words, t_rtv1 *r)
 {
 	t_shape		*shape;
 	t_cone		*cone;
@@ -26,9 +26,11 @@ void	set_cone(char **words, t_rtv1 *r)
 	cone = (t_cone*)ft_memalloc(sizeof(t_cone));
 	cone->origin = get_vect_from_str(words[1]);
 	cone->radius = atof(words[2]);
-	cone->color = get_color_from_str(words[3]);
-	cone->tran = get_vect_from_str(words[4]);
-	cone->rot = get_vect_from_str(words[5]);
+	cone->height = atof(words[3]);
+	cone->color = get_color_from_str(words[4]);
+	cone->axis = get_vect_from_str(words[5]);
+	cone->tran = get_vect_from_str(words[6]);
+	cone->rot = get_vect_from_str(words[7]);
 	shape->shape = cone;
 	shape->id = 4;
 	shape->next = NULL;

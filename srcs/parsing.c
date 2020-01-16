@@ -6,7 +6,7 @@
 /*   By: hezzahir <hezzahir@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2020/01/03 14:03:21 by hezzahir          #+#    #+#             */
-/*   Updated: 2020/01/10 14:39:10 by hezzahir         ###   ########.fr       */
+/*   Updated: 2020/01/16 17:35:37 by hezzahir         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -51,7 +51,7 @@ void		checker(char *line, t_rtv1 *r)
 		set_plane(words, r);
 	else if (!ft_strcmp(words[0], "cylindre") && nb_word == 7)
 		set_cylindre(words, r);
-	else if (!ft_strcmp(words[0], "cone") && nb_word == 6)
+	else if (!ft_strcmp(words[0], "cone") && nb_word == 8)
 		set_cone(words, r);
 	else
 	{
