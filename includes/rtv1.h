@@ -6,7 +6,7 @@
 /*   By: hezzahir <hamza.ezzahiry@gmail.com>        +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2019/12/27 07:08:51 by hhamdaou          #+#    #+#             */
-/*   Updated: 2020/01/16 18:37:25 by hezzahir         ###   ########.fr       */
+/*   Updated: 2020/01/16 18:40:44 by hezzahir         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -189,8 +189,8 @@ void			make_free(char **words);
 ** mlx functions
 */
 
-void		init_mlx(t_mlx *mlx, char *str);
-int			key_press(int key, t_mlx *mlx);
-void		mlx_hooks(t_mlx *mlx);
+void			init_mlx(t_mlx *mlx, char *str);
+int				key_press(int key, t_mlx *mlx);
+void			mlx_hooks(t_mlx *mlx);
 
 #endif
