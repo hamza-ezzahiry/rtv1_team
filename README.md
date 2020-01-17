@@ -114,7 +114,13 @@ To run the program:
 
 ## Screenshots
 
+### Screen1 
+<img src="https://i.imgur.com/4of1CJQ.png" width="1000" />
+
+### Screen2
+
 <img src="https://i.imgur.com/1OHon4g.png" width="1000" />
+
 
 ## keys keyboards (Minilibx)
 
