@@ -41,7 +41,7 @@ camera -50,0,20 0,0,0 70
 light -40,0,30 0.7 255,255,255 
 sphere 0,0,20 20 255,0,0 0,0,0 0,0,0
 plane 0,0,0 0,0,1 255,0,225 0,0,0 0,0,0
-cylinder 50.0,0.0,20.6 14.2 21.42 10,0,255 0,0,0 0,0,0
+cylinder 50,0,20.6 14.2 21.42 0,1,0 10,0,255 0,0,0 0,0,0
 cone 0,0,-10 3 10 255,150,50  0.3,-1,0.8 0,0,0 0,0,0
 ```
 
@@ -71,7 +71,7 @@ plane <origin> <color> <norme> <translation> <rotation>
 **Cylindre**
 
 ```sh
-cylindre <origin> <raduis> <height> <color> <translation> <rotation>
+cylindre <origin> <raduis> <height> <axis> <color> <translation> <rotation>
 ```
 
 **Cone**
