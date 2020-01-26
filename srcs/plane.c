@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   plane.c                                            :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: hezzahir <hezzahir@student.42.fr>          +#+  +:+       +#+        */
+/*   By: hezzahir <hamza.ezzahiry@gmail.com>        +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2020/01/04 21:54:26 by hezzahir          #+#    #+#             */
-/*   Updated: 2020/01/13 01:52:04 by hezzahir         ###   ########.fr       */
+/*   Updated: 2020/01/26 17:16:02 by hezzahir         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -26,8 +26,9 @@ void	set_plane(char **words, t_rtv1 *r)
 	plane = (t_plane*)ft_memalloc(sizeof(t_plane));
 	plane->origin = get_vect_from_str(words[1]);
 	plane->color = get_color_from_str(words[2]);
-	plane->tran = get_vect_from_str(words[3]);
-	plane->rot = get_vect_from_str(words[4]);
+	plane->norm = get_vect_from_str(words[3]);
+	plane->tran = get_vect_from_str(words[4]);
+	plane->rot = get_vect_from_str(words[5]);
 	shape->shape = plane;
 	shape->id = 2;
 	shape->next = NULL;
@@ -40,4 +41,6 @@ void	set_plane(char **words, t_rtv1 *r)
 			elt = elt->next;
 		elt->next = shape;
 	}
+	plane->origin = trans(plane->origin, plane->tran);
+	plane->norm = rotate(plane->norm, plane->rot);
 }

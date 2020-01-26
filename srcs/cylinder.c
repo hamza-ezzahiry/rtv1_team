@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   cylinder.c                                         :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: hezzahir <hezzahir@student.42.fr>          +#+  +:+       +#+        */
+/*   By: hezzahir <hamza.ezzahiry@gmail.com>        +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2020/01/08 21:27:40 by hezzahir          #+#    #+#             */
-/*   Updated: 2020/01/13 01:52:53 by hezzahir         ###   ########.fr       */
+/*   Updated: 2020/01/26 17:22:47 by hezzahir         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -27,9 +27,10 @@ void		set_cylindre(char **words, t_rtv1 *r)
 	cylindre->origin = get_vect_from_str(words[1]);
 	cylindre->radius = atof(words[2]);
 	cylindre->height = atof(words[3]);
-	cylindre->color = get_color_from_str(words[4]);
-	cylindre->tran = get_vect_from_str(words[5]);
-	cylindre->rot = get_vect_from_str(words[6]);
+	cylindre->axis = get_vect_from_str(words[4]);
+	cylindre->color = get_color_from_str(words[5]);
+	cylindre->tran = get_vect_from_str(words[6]);
+	cylindre->rot = get_vect_from_str(words[7]);
 	shape->shape = cylindre;
 	shape->id = 3;
 	shape->next = NULL;
@@ -42,4 +43,6 @@ void		set_cylindre(char **words, t_rtv1 *r)
 			elt = elt->next;
 		elt->next = shape;
 	}
+	cylindre->origin = trans(cylindre->origin, cylindre->tran);
+	cylindre->axis = rotate(cylindre->axis, cylindre->rot);
 }

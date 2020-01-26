@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   sphere.c                                           :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: hezzahir <hezzahir@student.42.fr>          +#+  +:+       +#+        */
+/*   By: hezzahir <hamza.ezzahiry@gmail.com>        +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2020/01/04 11:59:15 by hezzahir          #+#    #+#             */
-/*   Updated: 2020/01/13 15:20:34 by hezzahir         ###   ########.fr       */
+/*   Updated: 2020/01/26 17:23:50 by hezzahir         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -41,4 +41,5 @@ void		set_sphere(char **words, t_rtv1 *r)
 			elt = elt->next;
 		elt->next = shape;
 	}
+	sphere->origin = trans(sphere->origin, sphere->tran);
 }
