@@ -6,7 +6,7 @@
 /*   By: hezzahir <hamza.ezzahiry@gmail.com>        +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2019/12/27 07:08:51 by hhamdaou          #+#    #+#             */
-/*   Updated: 2020/01/16 18:40:44 by hezzahir         ###   ########.fr       */
+/*   Updated: 2020/01/26 17:09:12 by hezzahir         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -78,6 +78,7 @@ typedef struct	s_plane
 {
 	t_vect		origin;
 	t_color		color;
+	t_vect		norm;
 	t_vect		rot;
 	t_vect		tran;
 }				t_plane;
@@ -120,6 +121,7 @@ typedef struct	s_cylindre
 	double			radius;
 	double			height;
 	t_color			color;
+	t_vect			axis;
 	t_vect			rot;
 	t_vect			tran;
 }				t_cylindre;
@@ -192,5 +194,17 @@ void			make_free(char **words);
 void			init_mlx(t_mlx *mlx, char *str);
 int				key_press(int key, t_mlx *mlx);
 void			mlx_hooks(t_mlx *mlx);
+
+/*
+** maths calcul functions
+*/
+double			ft_sqrs(double x);
+double			ft_deg_to_rad(double angle);
+/*
+** Rotation/Translation functions
+*/
+
+t_vect			trans(t_vect v, t_vect t);
+t_vect			rotate(t_vect v, t_vect r);
 
 #endif
