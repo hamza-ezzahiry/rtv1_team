@@ -88,7 +88,8 @@ cone <origin> <raduis> <height> <color> <axis vector> <translation> <rotation>
 - **[All about Ray Tracing - YouTube](https://youtu.be/Ahp6LDQnK4Y)**
 - **[Images in minilibx](https://github.com/keuhdall/images_example)**
 - **[Ray tracing Cone - Maths behind](http://www.illusioncatalyst.com/notes_files/mathematics/line_cone_intersection.php)**
-
+- **[Raytracing shapes on hugi.scene.org](http://hugi.scene.org/online/hugi24/coding%20graphics%20chris%20dragan%20raytracing%20shapes.htm)**
+- **[Scratchapixel : Introduction to Ray Tracing: a Simple Method for Creating 3D Images](https://www.scratchapixel.com/lessons/3d-basic-rendering/introduction-to-ray-tracing)**
 
 
 ## Getting Started
