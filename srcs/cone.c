@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   cone.c                                             :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: hezzahir <hezzahir@student.42.fr>          +#+  +:+       +#+        */
+/*   By: hezzahir <hamza.ezzahiry@gmail.com>        +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2020/01/08 12:06:52 by hezzahir          #+#    #+#             */
-/*   Updated: 2020/01/16 17:36:25 by hezzahir         ###   ########.fr       */
+/*   Updated: 2020/01/26 17:27:27 by hezzahir         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -43,4 +43,6 @@ void		set_cone(char **words, t_rtv1 *r)
 			elt = elt->next;
 		elt->next = shape;
 	}
+	cone->origin = trans(cone->origin, cone->tran);
+	cone->axis = rotate(cone->axis, cone->rot);
 }
