@@ -31,3 +31,13 @@ void	vector_normalize(t_vect *v1)
 	v1->y /= norme;
 	v1->z /= norme;
 }
+
+t_vect vector_cross(t_vect u, t_vect v)
+{
+	t_vect vec;
+
+	vec.x = u.y * v.z - u.z * v.y;
+	vec.y = u.z * v.x - u.x * v.z;
+	vec.z = u.x * v.y - u.y * v.x;
+	return (vec);
+}
