@@ -6,7 +6,7 @@
 /*   By: hezzahir <hamza.ezzahiry@gmail.com>        +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2020/01/08 22:24:41 by hezzahir          #+#    #+#             */
-/*   Updated: 2020/01/28 14:08:09 by hezzahir         ###   ########.fr       */
+/*   Updated: 2020/01/28 22:37:56 by hezzahir         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -23,7 +23,7 @@ void		set_light(char **words, t_rtv1 *r)
 
 	light = (t_light*)ft_memalloc(sizeof(t_light));
 	light->origin = get_vect_from_str(words[1]);
-	light->intensity = atof(words[2]);
+	light->intensity = ft_atof(words[2]);
 	light->color = get_color_from_str(words[3]);
 	light->next = NULL;
 	elt = r->light;

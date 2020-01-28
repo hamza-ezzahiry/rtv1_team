@@ -6,17 +6,25 @@
 /*   By: hezzahir <hamza.ezzahiry@gmail.com>        +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2020/01/08 21:27:40 by hezzahir          #+#    #+#             */
-/*   Updated: 2020/01/26 17:22:47 by hezzahir         ###   ########.fr       */
+/*   Updated: 2020/01/28 22:39:56 by hezzahir         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "rtv1.h"
 
 /*
-**	Cylindre <origin> <raduis> <height> <color>
+**	Cylindre <origin> <raduis> <height> <axis> <color> <translation> <rotation>
 */
 
-void		set_cylindre(char **words, t_rtv1 *r)
+void			cylindre_rot_tran(t_cylindre *cylindre, char *s1, char *s2)
+{
+	cylindre->tran = get_vect_from_str(s1);
+	cylindre->rot = get_vect_from_str(s2);
+	cylindre->origin = trans(cylindre->origin, cylindre->tran);
+	cylindre->axis = rotate(cylindre->axis, cylindre->rot);
+}
+
+void			set_cylindre(char **words, t_rtv1 *r)
 {
 	t_shape		*shape;
 	t_cylindre	*cylindre;
@@ -29,8 +37,7 @@ void		set_cylindre(char **words, t_rtv1 *r)
 	cylindre->height = atof(words[3]);
 	cylindre->axis = get_vect_from_str(words[4]);
 	cylindre->color = get_color_from_str(words[5]);
-	cylindre->tran = get_vect_from_str(words[6]);
-	cylindre->rot = get_vect_from_str(words[7]);
+	cylindre_rot_tran(cylindre, words[6], words[7]);
 	shape->shape = cylindre;
 	shape->id = 3;
 	shape->next = NULL;
@@ -43,6 +50,4 @@ void		set_cylindre(char **words, t_rtv1 *r)
 			elt = elt->next;
 		elt->next = shape;
 	}
-	cylindre->origin = trans(cylindre->origin, cylindre->tran);
-	cylindre->axis = rotate(cylindre->axis, cylindre->rot);
 }

@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   camera.c                                           :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: hezzahir <hezzahir@student.42.fr>          +#+  +:+       +#+        */
+/*   By: hezzahir <hamza.ezzahiry@gmail.com>        +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2020/01/03 17:30:15 by hezzahir          #+#    #+#             */
-/*   Updated: 2020/01/08 12:01:45 by hezzahir         ###   ########.fr       */
+/*   Updated: 2020/01/28 22:38:16 by hezzahir         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -39,7 +39,7 @@ void	set_camera(char **words, t_rtv1 *r)
 	r->cam.fov = is_fov(words[3]);
 }
 
-void init_cam(t_rtv1 *r)
+void	init_cam(t_rtv1 *r)
 {
 	t_vect up;
 
