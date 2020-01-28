@@ -6,7 +6,7 @@
 #    By: hezzahir <hamza.ezzahiry@gmail.com>        +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2019/10/19 18:32:21 by hezzahir          #+#    #+#              #
-#    Updated: 2020/01/26 17:09:50 by hezzahir         ###   ########.fr        #
+#    Updated: 2020/01/28 14:21:41 by hezzahir         ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
 
@@ -14,7 +14,7 @@
 NAME = rtv1
 
 SRC_PATH = srcs
-SRC_NAME =  main.c vect_cal1.c vect_cal2.c check_ac.c parsing.c   get_data.c \
+SRC_NAME =  test_multi_light.c vect_cal1.c vect_cal2.c check_ac.c parsing.c get_data.c \
 			camera.c sphere.c cone.c cylinder.c light.c plane.c event.c \
 			maths_func.c rotation_translate.c
 
