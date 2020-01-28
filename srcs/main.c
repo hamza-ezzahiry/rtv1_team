@@ -41,16 +41,19 @@ int shape_intersection(t_ray ray, t_shape *elem, t_intersection *intersect)
 		s2 = (-b + sqrt(delta)) / 2;
 		if (s2 < 0 || s1 < 0)
 			return (0);
+		if (((s1 < s2 || s2 < 1e-6) && s1 > 1e-6) && s1 < intersect->coord_min)
+			intersect->coord_min = s1;
+		else if (((s2 < s1 || s1 < 1e-6) && s2 > 1e-6) && s2 < intersect->coord_min)
+			intersect->coord_min = s2;
+		else
+			return (0);
 		intersect->inter = 1;
-		s = fmin(s1, s2);
-		intersect->coord_min = fmin(intersect->coord_min, s);
-		if (s <= intersect->coord_min)
-		{
-			intersect->p_inter = vector_sum(ray.origin, vector_multi(ray.dir, s));
-			intersect->normal = vector_sub(intersect->p_inter, sphere->origin);
-			vector_normalize(&intersect->normal);
-			intersect->inter_color = (t_color){sphere->color.r, sphere->color.g, sphere->color.b};
-		}
+		//s = fmin(s1, s2);
+		//intersect->coord_min = fmin(intersect->coord_min, s);
+		intersect->p_inter = vector_sum(ray.origin, vector_multi(ray.dir, intersect->coord_min));
+		intersect->normal = vector_sub(intersect->p_inter, sphere->origin);
+		vector_normalize(&intersect->normal);
+		intersect->inter_color = (t_color){sphere->color.r, sphere->color.g, sphere->color.b};
 		return (1);
 	}
 	else if (elem->id == 2)
@@ -151,84 +154,58 @@ void intersection(t_ray ray, t_shape *shape, t_intersection *intersect)
 
 void draw(t_rtv1 *r)
 {
+	t_lighting pix_light;
 	t_vect pix_color;
 	t_intersection *intersect;
-	t_intersection *sh_inter;
 	t_ray ray;
-	double fact;
-	t_vect ambient;
-	double ambient_str;
-	t_vect diffuse;
-	t_vect specular;
+	int shadow;
 	int i;
 	int j;
 
-	fact = 0.5;
-	ambient_str = 0.2;
 	intersect = (t_intersection *)malloc(sizeof(t_intersection));
-	sh_inter = (t_intersection *)malloc(sizeof(t_intersection));
+
 	i = 0;
 	j = 0;
 	while (i < WIN_HEIGHT)
 	{
-		r->cam.y = -2 * (double)i / (double)WIN_HEIGHT + 1;
+		r->cam.y = 2 * (double)i / (double)WIN_HEIGHT - 1;
 		while (j < WIN_WIDTH)
 		{
 			//vector_generate(&r->cam.dir, j - WIN_WIDTH / 2, i - WIN_HEIGHT / 2, -WIN_WIDTH / (2 * (tan(k / 2))));
 			r->cam.x = 2 * (double)j / (double)WIN_WIDTH - 1;
-			r->cam.dir = vector_sum(vector_sum(vector_multi(r->cam.v, r->cam.x),
-											   vector_multi(r->cam.u, r->cam.y)),
-									vector_multi(r->cam.w, r->cam.fov));
+			r->cam.dir = vector_sum(vector_sum(vector_multi(r->cam.v, r->cam.x * r->cam.width),
+											   vector_multi(r->cam.u, r->cam.y * r->cam.height)),
+									r->cam.w);
 			vector_normalize(&r->cam.dir);
 			ray.origin = r->cam.pos;
 			ray.dir = r->cam.dir;
 			intersection(ray, r->shape, intersect);
-			r->light.dir = vector_sub(r->light.origin, intersect->p_inter);
-			vector_normalize(&r->light.dir);
+			// r->light->dir = vector_sub(r->light->origin, intersect->p_inter);
+			// vector_normalize(&r->light->dir);
 			if (intersect->inter)
 			{
-				vector_generate(&ray.origin, intersect->p_inter.x + (fact * intersect->normal.x), intersect->p_inter.y + (fact * intersect->normal.y), intersect->p_inter.z + (fact * intersect->normal.z));
-				ray.dir = vector_sub(r->light.origin, ray.origin);
-				vector_normalize(&ray.dir);
-				intersection(ray, r->shape, sh_inter);
-				sh_inter->normal = vector_sub(intersect->p_inter, sh_inter->p_inter);
-				/**************AMBIENT************/
-				ambient.x = ambient_str;
-				ambient.y = ambient_str;
-				ambient.z = ambient_str;
-				/*********************************/
-
-				/**************DIFFUSE************/
-				diffuse.x = fmax(0, vector_scalar(intersect->normal, r->light.dir)) * r->light.intensity;
-				diffuse.y = fmax(0, vector_scalar(intersect->normal, r->light.dir)) * r->light.intensity;
-				diffuse.z = fmax(0, vector_scalar(intersect->normal, r->light.dir)) * r->light.intensity;
-				/*********************************/
-
-				/**************SPECULAR************/
-				t_vect view;
-				double spec_str = 0.5;
-				double str;
-				t_vect R;
-				view = vector_sub(r->cam.pos, intersect->p_inter);
-				vector_normalize(&view);
-				r->light.dir = vector_multi(r->light.dir, -1);
-				R = vector_sub(r->light.dir, vector_multi(intersect->normal, 2 * vector_scalar(intersect->normal, r->light.dir)));
-				str = pow(fmax(vector_scalar(view, R), 0.), 250);
-				specular.x = str * spec_str;
-				specular.y = str * spec_str;
-				specular.z = str * spec_str;
-				/**********************************/
-				if (sh_inter->inter && r->light.intensity/*&& sh_inter->coord_min * sh_inter->coord_min <= vector_snorme(light.dir)*/ /*&& vector_snorme(sh_inter->normal) < vector_snorme(light.dir)*/)
+				pix_light = pixel_lighting(*r, *intersect);
+				shadow = shadow_light(*r, *intersect);
+				// vector_generate(&ray.origin, intersect->p_inter.x + (fact * intersect->normal.x), intersect->p_inter.y + (fact * intersect->normal.y), intersect->p_inter.z + (fact * intersect->normal.z));
+				// ray.dir = vector_sub(r->light->origin, ray.origin);
+				// vector_normalize(&ray.dir);
+				// intersection(ray, r->shape, sh_inter);
+				// sh_inter->normal = vector_sub(intersect->p_inter, sh_inter->p_inter);
+				t_vect pixel;
+				pixel.x = intersect->inter_color.r * (pix_light.ambient.x + pix_light.diffuse.x + pix_light.specular.x);
+				pixel.y = intersect->inter_color.g * (pix_light.ambient.y + pix_light.diffuse.y + pix_light.specular.y);
+				pixel.z = intersect->inter_color.b * (pix_light.ambient.z + pix_light.diffuse.z + pix_light.specular.z);
+				if (shadow /*&& sh_inter->coord_min * sh_inter->coord_min <= vector_snorme(light.dir)*/ /*&& vector_snorme(sh_inter->normal) < vector_snorme(light.dir)*/)
 				{
 					// sh_inter->normal = vector_sub(intersect->p_inter, sh_inter->p_inter);
 					//if (vector_snorme(sh_inter->normal) < vector_snorme(light.dir))
-					pix_color = (t_vect){0, 0, 0};
+					pix_color = (t_vect){pixel.x - pixel.x / 10. * (double)shadow, pixel.y - pixel.y / 10. * (double)shadow, pixel.z - pixel.z / 10. * (double)shadow};
 				}
 				else
 				{
-					pix_color.x = intersect->inter_color.r * (ambient.x + diffuse.x + specular.x);
-					pix_color.y = intersect->inter_color.g * (ambient.y + diffuse.y + specular.y);
-					pix_color.z = intersect->inter_color.b * (ambient.z + diffuse.z + specular.z);
+					pix_color.x = pixel.x;
+					pix_color.y = pixel.y;
+					pix_color.z = pixel.z;
 				}
 				r->mlx.img.data[4 * (WIN_WIDTH * (WIN_HEIGHT - i - 1) + j) + 0] = fmin(255., fmax(pix_color.z, 0.)); //blue
 				r->mlx.img.data[4 * (WIN_WIDTH * (WIN_HEIGHT - i - 1) + j) + 1] = fmin(255., fmax(pix_color.y, 0.)); //green
