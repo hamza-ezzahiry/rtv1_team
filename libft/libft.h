@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   libft.h                                            :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: hezzahir <hezzahir@student.42.fr>          +#+  +:+       +#+        */
+/*   By: hezzahir <hamza.ezzahiry@gmail.com>        +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2018/11/08 14:47:08 by hezzahir          #+#    #+#             */
-/*   Updated: 2020/01/05 12:58:53 by hezzahir         ###   ########.fr       */
+/*   Updated: 2020/01/28 16:34:46 by hezzahir         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -95,4 +95,5 @@ int				get_next_line(const int fd, char **line);
 int				is_double(char *word);
 int				is_int(char *word);
 int				is_color(char *word);
+double			ft_atof(const char *str);
 #endif

@@ -3,10 +3,10 @@
 #                                                         :::      ::::::::    #
 #    Makefile                                           :+:      :+:    :+:    #
 #                                                     +:+ +:+         +:+      #
-#    By: hezzahir <hezzahir@student.42.fr>          +#+  +:+       +#+         #
+#    By: hezzahir <hamza.ezzahiry@gmail.com>        +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2018/11/08 15:00:21 by hezzahir          #+#    #+#              #
-#    Updated: 2020/01/04 20:35:13 by hezzahir         ###   ########.fr        #
+#    Updated: 2020/01/28 16:34:59 by hezzahir         ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
 
@@ -27,7 +27,7 @@ SRC = ft_atoi.c ft_bzero.c ft_isalnum.c ft_isalpha.c ft_isascii.c \
 	ft_strnew.c ft_strnstr.c ft_strrchr.c ft_strsplit.c ft_strstr.c \
 	ft_strsub.c ft_strtrim.c ft_swap.c ft_tolower.c ft_strlen.c \
 	ft_toupper.c ft_strdup.c ft_strcat.c ft_strnequ.c get_next_line.c \
-	is_int.c is_double.c is_color.c
+	is_int.c is_double.c is_color.c ft_atof.c
 
 all: $(NAME)
 
