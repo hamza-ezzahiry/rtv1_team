@@ -6,18 +6,18 @@
 /*   By: hezzahir <hamza.ezzahiry@gmail.com>        +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2019/12/27 07:08:51 by hhamdaou          #+#    #+#             */
-/*   Updated: 2020/01/28 22:48:16 by hezzahir         ###   ########.fr       */
+/*   Updated: 2020/01/30 15:55:16 by hezzahir         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #ifndef RTV1_H
-#define RTV1_H
-#include "../libft/libft.h"
-#include "mlx.h"
-#include <stdio.h>
-#include <math.h>
-#define WIN_WIDTH 1024
-#define WIN_HEIGHT 1024
+# define RTV1_H
+# include "../libft/libft.h"
+# include "mlx.h"
+# include <stdio.h>
+# include <math.h>
+# define WIN_WIDTH 1024
+# define WIN_HEIGHT 1024
 
 typedef struct	s_img
 {
@@ -218,14 +218,29 @@ void			mlx_hooks(t_rtv1 *r);
 */
 double			ft_sqrs(double x);
 double			ft_deg_to_rad(double angle);
+
 /*
 ** Rotation/Translation functions
 */
 
 t_vect			trans(t_vect v, t_vect t);
 t_vect			rotate(t_vect v, t_vect r);
-void 			init_cam(t_rtv1 *r);
-t_lighting 		pixel_lighting(t_rtv1 r, t_intersection inter);
-int 			shadow_light(t_rtv1 r, t_intersection intersect);
-void 			intersection(t_ray ray, t_shape *shape, t_intersection *intersect);
+void			init_cam(t_rtv1 *r);
+t_lighting		pixel_lighting(t_rtv1 r, t_intersection inter);
+int				shadow_light(t_rtv1 r, t_intersection intersect);
+void			intersection(t_ray ray, t_shape *shape,
+					t_intersection *intersect);
+
+/*
+** Intersection functions
+*/
+
+void			intersection(t_ray ray, t_shape *shape,
+					t_intersection *intersect);
+double			solve_sphere(t_sphere *sphere, t_ray ray);
+double			solve_cylindre(t_cylindre *cy, t_ray ray);
+double			solve_plane(t_plane *pl, t_ray ray);
+double			solve_cone(t_cone *cone, t_ray ray);
+void			surface_normal(t_ray ray, t_shape *elem,
+											t_intersection *intersect);
 #endif

@@ -6,7 +6,7 @@
 /*   By: hezzahir <hamza.ezzahiry@gmail.com>        +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2020/01/03 17:30:15 by hezzahir          #+#    #+#             */
-/*   Updated: 2020/01/28 22:38:16 by hezzahir         ###   ########.fr       */
+/*   Updated: 2020/01/29 22:32:27 by hezzahir         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -50,6 +50,6 @@ void	init_cam(t_rtv1 *r)
 	r->cam.v = vector_cross(r->cam.w, up);
 	vector_normalize(&r->cam.v);
 	r->cam.u = vector_cross(r->cam.v, r->cam.w);
-	r->cam.height = atan(r->cam.fov) / 2;
+	r->cam.height = tan(r->cam.fov / 2) * 2;
 	r->cam.width = r->cam.height * (WIN_WIDTH / WIN_HEIGHT);
 }

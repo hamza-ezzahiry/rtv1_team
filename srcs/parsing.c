@@ -6,7 +6,7 @@
 /*   By: hezzahir <hamza.ezzahiry@gmail.com>        +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2020/01/03 14:03:21 by hezzahir          #+#    #+#             */
-/*   Updated: 2020/01/26 17:43:31 by hezzahir         ###   ########.fr       */
+/*   Updated: 2020/01/30 16:21:45 by hezzahir         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -66,7 +66,7 @@ int			parse(t_rtv1 *r, char *s)
 	char	*line;
 
 	r->fd = ft_open(s);
-	if (get_next_line(r->fd, &line) == 1 && line != NULL && strlen(line))
+	if (get_next_line(r->fd, &line) == 1 && line != NULL && ft_strlen(line))
 		checker(line, r);
 	else
 	{
@@ -76,7 +76,7 @@ int			parse(t_rtv1 *r, char *s)
 	free(line);
 	while (get_next_line(r->fd, &line) > 0)
 	{
-		if (strlen(line))
+		if (ft_strlen(line))
 			checker(line, r);
 		free(line);
 	}

@@ -6,7 +6,7 @@
 /*   By: hezzahir <hamza.ezzahiry@gmail.com>        +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2020/01/08 21:27:40 by hezzahir          #+#    #+#             */
-/*   Updated: 2020/01/28 22:39:56 by hezzahir         ###   ########.fr       */
+/*   Updated: 2020/01/30 16:21:14 by hezzahir         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -33,8 +33,8 @@ void			set_cylindre(char **words, t_rtv1 *r)
 	shape = (t_shape*)ft_memalloc(sizeof(t_shape));
 	cylindre = (t_cylindre*)ft_memalloc(sizeof(t_cylindre));
 	cylindre->origin = get_vect_from_str(words[1]);
-	cylindre->radius = atof(words[2]);
-	cylindre->height = atof(words[3]);
+	cylindre->radius = ft_atof(words[2]);
+	cylindre->height = ft_atof(words[3]);
 	cylindre->axis = get_vect_from_str(words[4]);
 	cylindre->color = get_color_from_str(words[5]);
 	cylindre_rot_tran(cylindre, words[6], words[7]);

@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   get_data.c                                         :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: hezzahir <hezzahir@student.42.fr>          +#+  +:+       +#+        */
+/*   By: hezzahir <hamza.ezzahiry@gmail.com>        +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2020/01/03 18:37:08 by hezzahir          #+#    #+#             */
-/*   Updated: 2020/01/09 01:31:20 by hezzahir         ###   ########.fr       */
+/*   Updated: 2020/01/30 16:21:44 by hezzahir         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -61,9 +61,9 @@ t_vect		get_vect_from_str(char *str)
 	{
 		if (is_double(mots[0]) && is_double(mots[1]) && is_double(mots[0]))
 		{
-			v.x = atof(mots[0]);
-			v.y = atof(mots[1]);
-			v.z = atof(mots[2]);
+			v.x = ft_atof(mots[0]);
+			v.y = ft_atof(mots[1]);
+			v.z = ft_atof(mots[2]);
 		}
 		else
 		{
