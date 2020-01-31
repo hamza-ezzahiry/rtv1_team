@@ -6,7 +6,7 @@
 /*   By: hezzahir <hamza.ezzahiry@gmail.com>        +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2020/01/04 21:54:26 by hezzahir          #+#    #+#             */
-/*   Updated: 2020/01/26 17:16:02 by hezzahir         ###   ########.fr       */
+/*   Updated: 2020/01/31 11:34:52 by hezzahir         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -43,4 +43,5 @@ void	set_plane(char **words, t_rtv1 *r)
 	}
 	plane->origin = trans(plane->origin, plane->tran);
 	plane->norm = rotate(plane->norm, plane->rot);
+	r->is_okey[2] = '1';
 }

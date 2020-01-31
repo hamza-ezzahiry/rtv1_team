@@ -6,7 +6,7 @@
 /*   By: hezzahir <hamza.ezzahiry@gmail.com>        +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2020/01/08 22:24:41 by hezzahir          #+#    #+#             */
-/*   Updated: 2020/01/28 22:37:56 by hezzahir         ###   ########.fr       */
+/*   Updated: 2020/01/31 11:33:11 by hezzahir         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -35,4 +35,5 @@ void		set_light(char **words, t_rtv1 *r)
 			elt = elt->next;
 		elt->next = light;
 	}
+	r->is_okey[1] = '1';
 }

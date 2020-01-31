@@ -6,7 +6,7 @@
 /*   By: hezzahir <hamza.ezzahiry@gmail.com>        +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2020/01/03 17:30:15 by hezzahir          #+#    #+#             */
-/*   Updated: 2020/01/29 22:32:27 by hezzahir         ###   ########.fr       */
+/*   Updated: 2020/01/31 11:31:02 by hezzahir         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -37,6 +37,7 @@ void	set_camera(char **words, t_rtv1 *r)
 	r->cam.pos = get_vect_from_str(words[1]);
 	r->cam.lookat = get_vect_from_str(words[2]);
 	r->cam.fov = is_fov(words[3]);
+	r->is_okey[0] = '1';
 }
 
 void	init_cam(t_rtv1 *r)

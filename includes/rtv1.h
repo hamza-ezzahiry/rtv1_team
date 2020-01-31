@@ -6,7 +6,7 @@
 /*   By: hezzahir <hamza.ezzahiry@gmail.com>        +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2019/12/27 07:08:51 by hhamdaou          #+#    #+#             */
-/*   Updated: 2020/01/30 15:55:16 by hezzahir         ###   ########.fr       */
+/*   Updated: 2020/01/31 16:14:15 by hezzahir         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -160,7 +160,7 @@ typedef struct	s_rtv1
 	t_shape		*shape;
 	t_camera	cam;
 	t_light		*light;
-	int			is_okey[3];
+	char		is_okey[3];
 }				t_rtv1;
 
 /*

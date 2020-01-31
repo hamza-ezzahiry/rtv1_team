@@ -6,7 +6,7 @@
 /*   By: hezzahir <hamza.ezzahiry@gmail.com>        +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2020/01/08 12:06:52 by hezzahir          #+#    #+#             */
-/*   Updated: 2020/01/28 22:37:05 by hezzahir         ###   ########.fr       */
+/*   Updated: 2020/01/31 11:35:48 by hezzahir         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -16,12 +16,13 @@
 **	cone <origin> <raduis> <height> <color> <axis vector> <translate> <rotation>
 */
 
-void		add_rot_tran(t_cone *cone, char *s1, char *s2)
+void		add_rot_tran(t_rtv1 *r, t_cone *cone, char *s1, char *s2)
 {
 	cone->tran = get_vect_from_str(s1);
 	cone->rot = get_vect_from_str(s2);
 	cone->origin = trans(cone->origin, cone->tran);
 	cone->axis = rotate(cone->axis, cone->rot);
+	r->is_okey[2] = '1';
 }
 
 void		set_cone(char **words, t_rtv1 *r)
@@ -37,7 +38,7 @@ void		set_cone(char **words, t_rtv1 *r)
 	cone->height = ft_atof(words[3]);
 	cone->color = get_color_from_str(words[4]);
 	cone->axis = get_vect_from_str(words[5]);
-	add_rot_tran(cone, words[6], words[7]);
+	add_rot_tran(r, cone, words[6], words[7]);
 	shape->shape = cone;
 	shape->id = 4;
 	shape->next = NULL;

@@ -6,7 +6,7 @@
 /*   By: hezzahir <hamza.ezzahiry@gmail.com>        +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2020/01/03 14:03:21 by hezzahir          #+#    #+#             */
-/*   Updated: 2020/01/30 16:21:45 by hezzahir         ###   ########.fr       */
+/*   Updated: 2020/01/31 11:44:15 by hezzahir         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -17,7 +17,7 @@ int			is_everything_okey(char *tab)
 	int	i;
 
 	i = -1;
-	while (i++ < 10)
+	while (i++ < 3)
 		if (tab[i] == '0')
 			return (-1);
 	return (1);
@@ -61,11 +61,19 @@ void		checker(char *line, t_rtv1 *r)
 	make_free(words);
 }
 
+void	fill_in(char *s)
+{
+	s[0] = '0';
+	s[1] = '0';
+	s[2] = '0';
+}
+
 int			parse(t_rtv1 *r, char *s)
 {
 	char	*line;
 
 	r->fd = ft_open(s);
+	fill_in(r->is_okey);
 	if (get_next_line(r->fd, &line) == 1 && line != NULL && ft_strlen(line))
 		checker(line, r);
 	else
@@ -80,5 +88,5 @@ int			parse(t_rtv1 *r, char *s)
 			checker(line, r);
 		free(line);
 	}
-	return (1);
+	return (is_everything_okey(r->is_okey));
 }
