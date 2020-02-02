@@ -6,14 +6,14 @@
 /*   By: hezzahir <hamza.ezzahiry@gmail.com>        +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2020/01/04 11:59:15 by hezzahir          #+#    #+#             */
-/*   Updated: 2020/02/02 11:37:41 by hezzahir         ###   ########.fr       */
+/*   Updated: 2020/02/03 00:13:40 by hezzahir         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "rtv1.h"
 
 /*
-**	Sphare
+**	Sphare <origin> <raduis> <color> <translation> <rotation>
 */
 
 void		set_sphere(char **words, t_rtv1 *r)
@@ -42,6 +42,7 @@ void		set_sphere(char **words, t_rtv1 *r)
 		elt->next = shape;
 	}
 	sphere->origin = trans(sphere->origin, sphere->tran);
+	r->is_okey[2] = '1';
 }
 
 void		sphere_checker(t_rtv1 *r, t_sphere sphere)
