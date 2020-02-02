@@ -6,7 +6,7 @@
 /*   By: hezzahir <hamza.ezzahiry@gmail.com>        +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2020/01/04 11:59:15 by hezzahir          #+#    #+#             */
-/*   Updated: 2020/01/31 11:34:18 by hezzahir         ###   ########.fr       */
+/*   Updated: 2020/02/02 11:37:41 by hezzahir         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -42,5 +42,19 @@ void		set_sphere(char **words, t_rtv1 *r)
 		elt->next = shape;
 	}
 	sphere->origin = trans(sphere->origin, sphere->tran);
-	r->is_okey[2] = '1';
+}
+
+void		sphere_checker(t_rtv1 *r, t_sphere sphere)
+{
+	t_light	*light;
+	double	dist;
+
+	light = r->light;
+	while (light)
+	{
+		dist = distance(light->origin, sphere.origin);
+		if (dist < sphere.radius * sphere.radius)
+			light->intensity = 0;
+		light = light->next;
+	}
 }

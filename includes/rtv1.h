@@ -6,7 +6,7 @@
 /*   By: hezzahir <hamza.ezzahiry@gmail.com>        +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2019/12/27 07:08:51 by hhamdaou          #+#    #+#             */
-/*   Updated: 2020/01/31 16:14:15 by hezzahir         ###   ########.fr       */
+/*   Updated: 2020/02/02 11:40:49 by hezzahir         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -175,6 +175,7 @@ t_vect			vector_sub(t_vect v1, t_vect v2);
 t_vect			vector_multi(t_vect v1, double a);
 t_vect			vector_div(t_vect v1, double a);
 t_vect			vector_cross(t_vect u, t_vect v);
+double			distance(t_vect v1, t_vect v2);
 /*
 ** check argument
 */
@@ -243,4 +244,7 @@ double			solve_plane(t_plane *pl, t_ray ray);
 double			solve_cone(t_cone *cone, t_ray ray);
 void			surface_normal(t_ray ray, t_shape *elem,
 											t_intersection *intersect);
+void			draw(t_rtv1 *r);
+void			sphere_checker(t_rtv1 *r, t_sphere sphere);
+void			cylindre_checker(t_rtv1 *r, t_cylindre cylindre);
 #endif

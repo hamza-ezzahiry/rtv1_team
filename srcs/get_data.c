@@ -6,7 +6,7 @@
 /*   By: hezzahir <hamza.ezzahiry@gmail.com>        +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2020/01/03 18:37:08 by hezzahir          #+#    #+#             */
-/*   Updated: 2020/01/30 16:21:44 by hezzahir         ###   ########.fr       */
+/*   Updated: 2020/02/02 11:34:30 by hezzahir         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -32,7 +32,7 @@ void		ft_error(int id)
 		ft_putendl("Error: vector not valid");
 	else if (id == 2)
 		ft_putendl("Error: color not valid");
-	else if(id == 3)
+	else if (id == 3)
 		ft_putendl("Error: No data found");
 	exit(0);
 }

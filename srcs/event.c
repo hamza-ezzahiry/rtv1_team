@@ -6,22 +6,11 @@
 /*   By: hezzahir <hamza.ezzahiry@gmail.com>        +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2020/01/16 18:18:56 by hezzahir          #+#    #+#             */
-/*   Updated: 2020/01/31 15:56:24 by hezzahir         ###   ########.fr       */
+/*   Updated: 2020/02/02 11:33:26 by hezzahir         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "rtv1.h"
-
-ft_free_list(void *list)
-{
-	t_shape *head;
-
-	head = list;
-	while (head)
-	{
-		head = head->next;
-	}
-}
 
 int			key_press(int key, t_rtv1 *r)
 {
@@ -30,8 +19,6 @@ int			key_press(int key, t_rtv1 *r)
 		mlx_destroy_image(r->mlx.mlx_ptr, r->mlx.img.img_ptr);
 		mlx_destroy_window(r->mlx.mlx_ptr, r->mlx.win);
 		ft_memdel((void **)&(r->mlx.mlx_ptr));
-		ft_free_list(r->shape);
-		ft_free_list(r->shape);
 		exit(1);
 	}
 	return (0);
@@ -43,7 +30,8 @@ void		init_mlx(t_rtv1 *r, char *str)
 	r->mlx.win = mlx_new_window(r->mlx.mlx_ptr, WIN_WIDTH, WIN_HEIGHT, str);
 	r->mlx.img.img_ptr = mlx_new_image(r->mlx.mlx_ptr, WIN_WIDTH, WIN_HEIGHT);
 	r->mlx.img.data = (unsigned char *)mlx_get_data_addr(r->mlx.img.img_ptr,
-					&r->mlx.img.bpp, &r->mlx.img.size_l, &r->mlx.img.endian);
+						&r->mlx.img.bpp,
+						&r->mlx.img.size_l, &r->mlx.img.endian);
 }
 
 void		mlx_hooks(t_rtv1 *r)

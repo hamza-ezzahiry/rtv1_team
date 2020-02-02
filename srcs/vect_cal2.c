@@ -3,26 +3,33 @@
 /*                                                        :::      ::::::::   */
 /*   vect_cal2.c                                        :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: hezzahir <hezzahir@student.42.fr>          +#+  +:+       +#+        */
+/*   By: hezzahir <hamza.ezzahiry@gmail.com>        +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2020/01/12 14:56:59 by hezzahir          #+#    #+#             */
-/*   Updated: 2020/01/12 14:59:56 by hezzahir         ###   ########.fr       */
+/*   Updated: 2020/02/02 11:40:20 by hezzahir         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "rtv1.h"
 
-double	vector_scalar(t_vect v1, t_vect v2)
+double		vector_scalar(t_vect v1, t_vect v2)
 {
 	return (v1.x * v2.x + v1.y * v2.y + v1.z * v2.z);
 }
 
-double	vector_snorme(t_vect v1)
+double		distance(t_vect v1, t_vect v2)
+{
+	return ((v1.x - v2.x) * (v1.x - v2.x) +
+			(v1.y - v2.y) * (v1.y - v2.y) +
+			(v1.z - v2.z) * (v1.z - v2.z));
+}
+
+double		vector_snorme(t_vect v1)
 {
 	return (v1.x * v1.x + v1.y * v1.y + v1.z * v1.z);
 }
 
-void	vector_normalize(t_vect *v1)
+void		vector_normalize(t_vect *v1)
 {
 	double norme;
 
@@ -32,7 +39,7 @@ void	vector_normalize(t_vect *v1)
 	v1->z /= norme;
 }
 
-t_vect vector_cross(t_vect u, t_vect v)
+t_vect		vector_cross(t_vect u, t_vect v)
 {
 	t_vect vec;
 

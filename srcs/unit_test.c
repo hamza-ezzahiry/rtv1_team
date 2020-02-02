@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   unit_test.c                                        :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: hezzahir <hezzahir@student.42.fr>          +#+  +:+       +#+        */
+/*   By: hezzahir <hamza.ezzahiry@gmail.com>        +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2020/01/04 15:16:44 by hezzahir          #+#    #+#             */
-/*   Updated: 2020/01/05 12:18:47 by hezzahir         ###   ########.fr       */
+/*   Updated: 2020/01/31 20:23:39 by hezzahir         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -101,14 +101,13 @@ int		is_color(char *word)
 int		main(void)
 {
 	char s[100] = "dkljkdsjk ldsjdlkkds ;kdlk;dks;d kdkdk llld lllld";
-
 	char **words;
 
 	words = ft_strsplit(s, ' ');
 	int i = 0;
 	while(words[i] != 0)
 	{
-		printf("%s\n",words[i]);
+		printf("%s\n", words[i]);
 		i++;
 	}
 	printf("| %d |", i);
