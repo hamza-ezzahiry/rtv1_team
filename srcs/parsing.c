@@ -6,7 +6,7 @@
 /*   By: hezzahir <hamza.ezzahiry@gmail.com>        +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2020/01/03 14:03:21 by hezzahir          #+#    #+#             */
-/*   Updated: 2020/01/31 11:44:15 by hezzahir         ###   ########.fr       */
+/*   Updated: 2020/02/02 12:16:58 by hezzahir         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -61,7 +61,7 @@ void		checker(char *line, t_rtv1 *r)
 	make_free(words);
 }
 
-void	fill_in(char *s)
+void		fill_in(char *s)
 {
 	s[0] = '0';
 	s[1] = '0';
