@@ -6,7 +6,7 @@
 /*   By: hezzahir <hamza.ezzahiry@gmail.com>        +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2019/12/28 22:51:13 by hhamdaou          #+#    #+#             */
-/*   Updated: 2020/02/02 11:33:53 by hezzahir         ###   ########.fr       */
+/*   Updated: 2020/02/02 15:22:00 by hezzahir         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -70,6 +70,18 @@ void	light_off(t_rtv1 *r)
 	}
 }
 
+void	whatismissing(char *s)
+{
+	ft_putendl("scene not correct");
+	if (s[0] != '1')
+		ft_putendl("=> Camera is missing ;)");
+	else if (s[1] != '1')
+		ft_putendl("=> Light is missing ;)");
+	else
+		ft_putendl("=> object is missing ;)");
+	exit(0);
+}
+
 int		main(int ac, char **av)
 {
 	t_rtv1 r;
@@ -77,10 +89,7 @@ int		main(int ac, char **av)
 	r.shape = NULL;
 	check_ac(ac);
 	if (parse(&r, av[1]) < 0)
-	{
-		ft_putendl("scene not correct");
-		return (0);
-	}
+		whatismissing(r.is_okey);
 	init_mlx(&r, "rtv1");
 	init_cam(&r);
 	light_off(&r);
