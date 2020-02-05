@@ -6,7 +6,7 @@
 /*   By: hezzahir <hamza.ezzahiry@gmail.com>        +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2020/01/30 13:01:36 by hezzahir          #+#    #+#             */
-/*   Updated: 2020/01/30 16:25:43 by hezzahir         ###   ########.fr       */
+/*   Updated: 2020/02/05 14:16:10 by hezzahir         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -28,9 +28,7 @@ void	normal_plane(t_plane *pl, t_intersection *intersect)
 		intersect->normal = vector_multi(pl->norm, -1.0);
 	else
 		intersect->normal = vector_multi(pl->norm, 1.0);
-	vector_normalize(&intersect->normal);
 	intersect->inter_color = (t_color){pl->color.r, pl->color.g, pl->color.b};
-	intersect->normal = pl->norm;
 }
 
 void	normal_cylindre(t_cylindre *cy, t_ray ray, t_intersection *intersect)
