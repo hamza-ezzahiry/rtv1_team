@@ -6,7 +6,7 @@
 /*   By: hezzahir <hamza.ezzahiry@gmail.com>        +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2020/01/30 13:01:36 by hezzahir          #+#    #+#             */
-/*   Updated: 2020/02/05 14:16:10 by hezzahir         ###   ########.fr       */
+/*   Updated: 2020/02/06 23:23:21 by hezzahir         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -40,14 +40,14 @@ void	normal_cylindre(t_cylindre *cy, t_ray ray, t_intersection *intersect)
 	double	m;
 	double	s;
 	t_vect	x;
+	t_vect	nor;
 
 	x = vector_sub(ray.origin, cy->origin);
 	s = intersect->coord_min;
 	m = vector_scalar(ray.dir, cy->axis) * s + (vector_scalar(x, cy->axis));
 	intersect->p_inter = vector_sum(ray.origin, vector_multi(ray.dir, s));
-	intersect->normal = vector_sub(intersect->p_inter, cy->origin);
-	intersect->normal = vector_sub(intersect->normal,
-						vector_multi(cy->axis, m));
+	nor = vector_sub(intersect->p_inter, cy->origin);
+	intersect->normal = vector_sub(nor, vector_multi(cy->axis, m));
 	vector_normalize(&intersect->normal);
 	intersect->inter_color = (t_color){cy->color.r, cy->color.g, cy->color.b};
 }

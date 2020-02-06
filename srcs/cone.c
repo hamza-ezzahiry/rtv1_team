@@ -6,7 +6,7 @@
 /*   By: hezzahir <hamza.ezzahiry@gmail.com>        +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2020/01/08 12:06:52 by hezzahir          #+#    #+#             */
-/*   Updated: 2020/02/03 00:37:54 by hezzahir         ###   ########.fr       */
+/*   Updated: 2020/02/06 23:06:38 by hezzahir         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -22,6 +22,7 @@ void		add_rot_tran(t_rtv1 *r, t_cone *cone, char *s1, char *s2)
 	cone->rot = get_vect_from_str(s2);
 	cone->origin = trans(cone->origin, cone->tran);
 	cone->axis = rotate(cone->axis, cone->rot);
+	vector_normalize(&cone->axis);
 	r->is_okey[2] = '1';
 }
 

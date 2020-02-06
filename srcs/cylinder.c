@@ -6,7 +6,7 @@
 /*   By: hezzahir <hamza.ezzahiry@gmail.com>        +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2020/01/08 21:27:40 by hezzahir          #+#    #+#             */
-/*   Updated: 2020/02/04 20:55:06 by hezzahir         ###   ########.fr       */
+/*   Updated: 2020/02/06 19:25:15 by hezzahir         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -22,6 +22,7 @@ void	cylindre_rot_tran(t_rtv1 *r, t_cylindre *cylindre, char *s1, char *s2)
 	cylindre->rot = get_vect_from_str(s2);
 	cylindre->origin = trans(cylindre->origin, cylindre->tran);
 	cylindre->axis = rotate(cylindre->axis, cylindre->rot);
+	vector_normalize(&cylindre->axis);
 	r->is_okey[2] = '1';
 }
 
