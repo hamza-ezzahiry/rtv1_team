@@ -22,13 +22,17 @@ void	normal_sphere(t_sphere *sphere, t_ray ray, t_intersection *intersect)
 							sphere->color.g, sphere->color.b};
 }
 
-void	normal_plane(t_plane *pl, t_intersection *intersect)
+void	normal_plane(t_plane *pl, t_ray ray, t_intersection *intersect)
 {
+	double	s;
+
+	s = intersect->coord_min;
 	if (intersect->coord_min < 0)
 		intersect->normal = vector_multi(pl->norm, -1.0);
 	else
 		intersect->normal = vector_multi(pl->norm, 1.0);
 	intersect->inter_color = (t_color){pl->color.r, pl->color.g, pl->color.b};
+	intersect->p_inter = vector_sum(ray.origin, vector_multi(ray.dir, s));
 }
 
 void	normal_cylindre(t_cylindre *cy, t_ray ray, t_intersection *intersect)
@@ -73,7 +77,7 @@ void	surface_normal(t_ray ray, t_shape *elem, t_intersection *intersect)
 	if (elem->id == 1)
 		normal_sphere((t_sphere *)elem->shape, ray, intersect);
 	else if (elem->id == 2)
-		normal_plane((t_plane *)elem->shape, intersect);
+		normal_plane((t_plane *)elem->shape, ray, intersect);
 	else if (elem->id == 3)
 		normal_cylindre((t_cylindre *)elem->shape, ray, intersect);
 	else if (elem->id == 4)
