@@ -6,7 +6,7 @@
 /*   By: hezzahir <hamza.ezzahiry@gmail.com>        +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2020/01/08 12:06:52 by hezzahir          #+#    #+#             */
-/*   Updated: 2020/02/06 23:06:38 by hezzahir         ###   ########.fr       */
+/*   Updated: 2020/02/08 19:20:45 by hezzahir         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -20,6 +20,9 @@ void		add_rot_tran(t_rtv1 *r, t_cone *cone, char *s1, char *s2)
 {
 	cone->tran = get_vect_from_str(s1);
 	cone->rot = get_vect_from_str(s2);
+	cone->rot.x = ft_deg_to_rad(cone->rot.x);
+	cone->rot.y = ft_deg_to_rad(cone->rot.y);
+	cone->rot.z = ft_deg_to_rad(cone->rot.z);
 	cone->origin = trans(cone->origin, cone->tran);
 	cone->axis = rotate(cone->axis, cone->rot);
 	vector_normalize(&cone->axis);

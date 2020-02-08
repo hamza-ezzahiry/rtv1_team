@@ -6,7 +6,7 @@
 /*   By: hezzahir <hamza.ezzahiry@gmail.com>        +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2020/01/08 21:27:40 by hezzahir          #+#    #+#             */
-/*   Updated: 2020/02/06 19:25:15 by hezzahir         ###   ########.fr       */
+/*   Updated: 2020/02/08 19:15:32 by hezzahir         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -20,6 +20,9 @@ void	cylindre_rot_tran(t_rtv1 *r, t_cylindre *cylindre, char *s1, char *s2)
 {
 	cylindre->tran = get_vect_from_str(s1);
 	cylindre->rot = get_vect_from_str(s2);
+	cylindre->rot.x = ft_deg_to_rad(cylindre->rot.x);
+	cylindre->rot.y = ft_deg_to_rad(cylindre->rot.y);
+	cylindre->rot.z = ft_deg_to_rad(cylindre->rot.z);
 	cylindre->origin = trans(cylindre->origin, cylindre->tran);
 	cylindre->axis = rotate(cylindre->axis, cylindre->rot);
 	vector_normalize(&cylindre->axis);
