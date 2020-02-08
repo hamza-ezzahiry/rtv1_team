@@ -6,11 +6,35 @@
 /*   By: hezzahir <hamza.ezzahiry@gmail.com>        +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2020/01/16 18:18:56 by hezzahir          #+#    #+#             */
-/*   Updated: 2020/02/02 11:33:26 by hezzahir         ###   ########.fr       */
+/*   Updated: 2020/02/08 12:04:58 by hezzahir         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "rtv1.h"
+
+void		free_list_light(t_rtv1 *r)
+{
+	t_light	*tmp;
+
+	while (r->light)
+	{
+		tmp = r->light;
+		r->light = r->light->next;
+		ft_memdel((void **)&(tmp));
+	}
+}
+
+void		free_list_shapes(t_rtv1 *r)
+{
+	t_shape	*tmp;
+
+	while (r->shape)
+	{
+		tmp = r->shape;
+		r->shape = r->shape->next;
+		ft_memdel((void **)&(tmp));
+	}
+}
 
 int			key_press(int key, t_rtv1 *r)
 {
@@ -19,6 +43,8 @@ int			key_press(int key, t_rtv1 *r)
 		mlx_destroy_image(r->mlx.mlx_ptr, r->mlx.img.img_ptr);
 		mlx_destroy_window(r->mlx.mlx_ptr, r->mlx.win);
 		ft_memdel((void **)&(r->mlx.mlx_ptr));
+		free_list_light(r);
+		free_list_shapes(r);
 		exit(1);
 	}
 	return (0);
