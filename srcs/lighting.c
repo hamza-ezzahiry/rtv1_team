@@ -110,7 +110,6 @@ int			shadow_light(t_rtv1 r, t_intersection intersect)
 }
 */
 
-
 int shadow_light(t_rtv1 r, t_intersection intersect)
 {
 	t_intersection *sh_inter;
@@ -125,19 +124,22 @@ int shadow_light(t_rtv1 r, t_intersection intersect)
 	head = r.light;
 	while (head)
 	{
-		head->dir = vector_sub(head->origin, intersect.p_inter);
-		vector_normalize(&head->dir);
-		ray.origin = vector_sum(intersect.p_inter,
-								vector_div(intersect.normal, 1E10));
-		ray.dir = vector_sub(head->origin, ray.origin);
-		vector_normalize(&ray.dir);
-		intersection(ray, r.shape, sh_inter);
-		distance_light = distance(intersect.p_inter, head->origin);
-		distance_object = distance(intersect.p_inter, sh_inter->p_inter);
-		if (sh_inter->inter && head->intensity && (distance_object < distance_light))
+		if (head->intensity)
 		{
-			count += sh_inter->inter;
-			count++;
+			head->dir = vector_sub(head->origin, intersect.p_inter);
+			vector_normalize(&head->dir);
+			ray.origin = vector_sum(intersect.p_inter,
+									vector_div(intersect.normal, 1E10));
+			ray.dir = vector_sub(head->origin, ray.origin);
+			vector_normalize(&ray.dir);
+			intersection(ray, r.shape, sh_inter);
+			distance_light = distance(intersect.p_inter, head->origin);
+			distance_object = distance(intersect.p_inter, sh_inter->p_inter);
+			if (sh_inter->inter && (distance_object < distance_light))
+			{
+				count += sh_inter->inter;
+				count++;
+			}
 		}
 		head = head->next;
 	}
