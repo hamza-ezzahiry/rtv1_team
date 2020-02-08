@@ -59,7 +59,7 @@ t_vect		get_vect_from_str(char *str)
 	v = (t_vect) {0, 0, 0};
 	if (count(mots) == 3)
 	{
-		if (is_double(mots[0]) && is_double(mots[1]) && is_double(mots[0]))
+		if (is_double(mots[0]) && is_double(mots[1]) && is_double(mots[2]))
 		{
 			v.x = ft_atof(mots[0]);
 			v.y = ft_atof(mots[1]);
@@ -86,7 +86,7 @@ t_color		get_color_from_str(char *str)
 	c = (t_color) {0, 0, 255};
 	if (count(mots) == 3)
 	{
-		if (is_color(mots[0]) && is_color(mots[1]) && is_color(mots[0]))
+		if (is_color(mots[0]) && is_color(mots[1]) && is_color(mots[2]))
 		{
 			c.r = ft_atoi(mots[0]);
 			c.g = ft_atoi(mots[1]);
