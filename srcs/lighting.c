@@ -6,7 +6,7 @@
 /*   By: hezzahir <hamza.ezzahiry@gmail.com>        +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2020/01/28 15:15:25 by hhamdaou          #+#    #+#             */
-/*   Updated: 2020/02/06 19:10:37 by hezzahir         ###   ########.fr       */
+/*   Updated: 2020/02/09 03:57:52 by hezzahir         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -80,47 +80,19 @@ t_lighting	pixel_lighting(t_rtv1 r, t_intersection inter)
 	}
 	return (res);
 }
-/*
-int			shadow_light(t_rtv1 r, t_intersection intersect)
-{
-	t_intersection	*sh_inter;
-	t_ray			ray;
-	t_light			*head;
-	int				count;
 
-	sh_inter = (t_intersection *)malloc(sizeof(t_intersection));
-	count = 0;
-	head = r.light;
-	while (head)
-	{
-		head->dir = vector_sub(head->origin, intersect.p_inter);
-		vector_normalize(&head->dir);
-		ray.origin = vector_sum(intersect.p_inter,
-				vector_div(intersect.normal, 1E10));
-		ray.dir = vector_sub(head->origin, ray.origin);
-		vector_normalize(&ray.dir);
-		intersection(ray, r.shape, sh_inter);
-		if (sh_inter->inter && head->intensity)
-			count++;
-		head = head->next;
-	}
-	count += sh_inter->inter;
-	free(sh_inter);
-	return (count);
-}
+/*
+**	s_i is sh_intersection
 */
 
-int shadow_light(t_rtv1 r, t_intersection intersect)
+int			shadow_light(t_rtv1 r, t_intersection intersect)
 {
-	t_intersection *sh_inter;
-	t_ray ray;
-	t_light *head;
-	int count;
-	double distance_light;
-	double distance_object;
+	t_intersection	*s_i;
+	t_ray			ray;
+	t_light			*head;
 
-	sh_inter = (t_intersection *)malloc(sizeof(t_intersection));
-	count = 0;
+	s_i = (t_intersection *)malloc(sizeof(t_intersection));
+	s_i->count = 0;
 	head = r.light;
 	while (head)
 	{
@@ -132,17 +104,14 @@ int shadow_light(t_rtv1 r, t_intersection intersect)
 									vector_div(intersect.normal, 1E10));
 			ray.dir = vector_sub(head->origin, ray.origin);
 			vector_normalize(&ray.dir);
-			intersection(ray, r.shape, sh_inter);
-			distance_light = distance(intersect.p_inter, head->origin);
-			distance_object = distance(intersect.p_inter, sh_inter->p_inter);
-			if (sh_inter->inter && (distance_object < distance_light))
-			{
-				count += sh_inter->inter;
-				count++;
-			}
+			intersection(ray, r.shape, s_i);
+			s_i->distance_light = distance(intersect.p_inter, head->origin);
+			s_i->distance_object = distance(intersect.p_inter, s_i->p_inter);
+			if (s_i->inter && (s_i->distance_object < s_i->distance_light))
+				s_i->count += s_i->inter + 1;
 		}
 		head = head->next;
 	}
-	free(sh_inter);
+	free(s_i);
 	return (count);
 }

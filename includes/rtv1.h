@@ -6,7 +6,7 @@
 /*   By: hezzahir <hamza.ezzahiry@gmail.com>        +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2019/12/27 07:08:51 by hhamdaou          #+#    #+#             */
-/*   Updated: 2020/02/02 11:40:49 by hezzahir         ###   ########.fr       */
+/*   Updated: 2020/02/09 03:44:57 by hezzahir         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -63,6 +63,9 @@ typedef struct	s_intersection
 	t_vect	p_inter;
 	t_vect	normal;
 	double	coord_min;
+	int		count;
+	double	distance_light;
+	double	distance_object;
 }				t_intersection;
 
 typedef struct	s_sphere
