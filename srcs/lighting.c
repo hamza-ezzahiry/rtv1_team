@@ -6,7 +6,7 @@
 /*   By: hezzahir <hamza.ezzahiry@gmail.com>        +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2020/01/28 15:15:25 by hhamdaou          #+#    #+#             */
-/*   Updated: 2020/02/09 03:57:52 by hezzahir         ###   ########.fr       */
+/*   Updated: 2020/02/09 04:01:27 by hezzahir         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -113,5 +113,5 @@ int			shadow_light(t_rtv1 r, t_intersection intersect)
 		head = head->next;
 	}
 	free(s_i);
-	return (count);
+	return (s_i->count);
 }
