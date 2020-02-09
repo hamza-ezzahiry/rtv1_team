@@ -6,7 +6,7 @@
 /*   By: hezzahir <hamza.ezzahiry@gmail.com>        +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2020/01/28 15:15:25 by hhamdaou          #+#    #+#             */
-/*   Updated: 2020/02/09 04:06:20 by hezzahir         ###   ########.fr       */
+/*   Updated: 2020/02/09 15:57:18 by hhamdaou         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -100,10 +100,7 @@ int			shadow_light(t_rtv1 r, t_intersection intersect)
 		{
 			head->dir = vector_sub(head->origin, intersect.p_inter);
 			vector_normalize(&head->dir);
-			ray.origin = vector_sum(intersect.p_inter,
-									vector_div(intersect.normal, 1E10));
-			ray.dir = vector_sub(head->origin, ray.origin);
-			vector_normalize(&ray.dir);
+			vect_init(&ray, intersect, head->origin);
 			intersection(ray, r.shape, s_i);
 			s_i->distance_light = distance(intersect.p_inter, head->origin);
 			s_i->distance_object = distance(intersect.p_inter, s_i->p_inter);

@@ -222,6 +222,7 @@ void			mlx_hooks(t_rtv1 *r);
 */
 double			ft_sqrs(double x);
 double			ft_deg_to_rad(double angle);
+void			vect_init(t_ray *ray, t_intersection intersect, t_vect origin);
 
 /*
 ** Rotation/Translation functions
