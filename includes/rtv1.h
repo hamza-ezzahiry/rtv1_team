@@ -18,6 +18,7 @@
 # include <math.h>
 # define WIN_WIDTH 1024
 # define WIN_HEIGHT 1024
+# define EPS 1e-9
 
 typedef struct	s_img
 {
