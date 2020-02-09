@@ -6,7 +6,7 @@
 /*   By: hezzahir <hamza.ezzahiry@gmail.com>        +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2020/01/03 17:30:15 by hezzahir          #+#    #+#             */
-/*   Updated: 2020/01/31 11:31:02 by hezzahir         ###   ########.fr       */
+/*   Updated: 2020/02/09 16:15:33 by hezzahir         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -46,6 +46,7 @@ void	init_cam(t_rtv1 *r)
 
 	up = (t_vect){0., 1., 0.};
 	r->cam.fov = r->cam.fov * M_PI / 180;
+	r->cam.pos.z += EPS;
 	r->cam.w = vector_sub(r->cam.lookat, r->cam.pos);
 	vector_normalize(&r->cam.w);
 	r->cam.v = vector_cross(r->cam.w, up);
