@@ -91,6 +91,8 @@ cone <origin> <raduis> <height> <color> <axis vector> <translation> <rotation>
 - **[Raytracing shapes on hugi.scene.org](http://hugi.scene.org/online/hugi24/coding%20graphics%20chris%20dragan%20raytracing%20shapes.htm)**
 - **[Scratchapixel : Introduction to Ray Tracing: a Simple Method for Creating 3D Images](https://www.scratchapixel.com/lessons/3d-basic-rendering/introduction-to-ray-tracing)**
 - **[Geogebra : Draw objects in 3D](https://www.geogebra.org/3d?lang=en)**
+- **[École Centrale Lyon -- Cours de Rendu Réaliste](https://perso.liris.cnrs.fr/nicolas.bonneel/teaching.html)**
+
 
 
 
