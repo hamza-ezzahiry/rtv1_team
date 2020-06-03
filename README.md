@@ -5,7 +5,7 @@
 
 
 <p align="center">
-  <a href="https://github.com/hamza-ezzahiry/rtv1_team/ "Azure fundamentals">
+  <a href="https://github.com/hamza-ezzahiry/rtv1_team/ "RTV1">
     <img alt="Gatsby" src="https://i.imgur.com/qB1BnfQ.png" width="500" />
   </a>
 </p>
